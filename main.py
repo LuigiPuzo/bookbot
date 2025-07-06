@@ -1,13 +1,24 @@
+import sys
 from stats import *
 
 def main():
-    #print("Starting the book reader...")
-    #num_words = get_num_words('books/frankenstein.txt')
-    #print (f"{num_words} words found in the document")
-    #print("counting characters")
-    num_characters = get_num_characters('books/frankenstein.txt')
-    print (num_characters)
-    #dump_text('books/frankenstein.txt')
+
+    try: 
+        book = sys.argv[1]
+    except:
+        print ("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    num_words = get_num_words(book)
+    num_characters = get_num_characters(book)
+    print ("============ BOOKBOT ============")
+    print (f"Analyzing book found at {book}...")
+    print ("----------- Word Count ----------")
+    print (f"Found {num_words} total words")
+    print ("--------- Character Count -------")
+    sorted_dict = get_sorted_list(book)
+    print ("============= END ===============")
+
 if __name__ == "__main__":
     main()
     

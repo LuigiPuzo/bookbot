@@ -34,3 +34,13 @@ def dump_text(filename):
         for word in text:
             print (word)
     return
+
+def get_sorted_list(filename):
+    character_dict = get_num_characters(filename)
+    occurences=(sorted(character_dict.items(), key=lambda pair: pair[1],reverse=True ))
+    new_dictionary = {}
+    for i in occurences:
+        
+        if i[0].isalpha():
+            print (f"{i[0]}: {i[1]}") 
+    return occurences
